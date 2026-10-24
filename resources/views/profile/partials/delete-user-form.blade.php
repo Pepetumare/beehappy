@@ -5,9 +5,13 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            Si tu cuenta tiene citas, solicitudes de compra o un catálogo de ofertas, este formulario no permite eliminarla. El historial se conserva, incluso si las solicitudes están canceladas. En los demás casos, la eliminación de la cuenta es permanente.
         </p>
     </header>
+
+    @if ($errors->userDeletion->has('account'))
+        <div role="alert" class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900">{{ $errors->userDeletion->first('account') }}</div>
+    @endif
 
     <x-danger-button
         x-data=""
@@ -24,7 +28,7 @@
             </h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                Escribe tu contraseña para confirmar. Si hay citas, compras u ofertas, la cuenta no se eliminará.
             </p>
 
             <div class="mt-6">
@@ -39,6 +43,7 @@
                 />
 
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                <x-input-error :messages="$errors->userDeletion->get('account')" class="mt-2" />
             </div>
 
             <div class="mt-6 flex justify-end">

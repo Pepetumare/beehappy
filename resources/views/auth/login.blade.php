@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout><p class="bee-kicker">Tu espacio de bienestar</p><h1 class="mt-3 font-serif text-3xl">Bienvenido a BeeHappy</h1><p class="mb-7 mt-3 text-sm text-gray-500">Ingresa para acceder a tu cuenta.</p>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,4 +44,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+<p class="mt-8 text-center text-sm">¿Aún no tienes cuenta? <a class="font-bold text-[#397442] underline" href="{{ route('register') }}">Crear cuenta</a></p></x-guest-layout>

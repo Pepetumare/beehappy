@@ -1,6 +1,15 @@
-<x-guest-layout>
+<x-guest-layout><p class="bee-kicker">Bienvenido a BeeHappy</p><h1 class="mt-3 mb-6 font-serif text-3xl">Crea tu cuenta</h1>
     <form method="POST" action="{{ route('register') }}">
         @csrf
+<div class="mb-5">
+    <x-input-label for="role" value="Tipo de cuenta" />
+    <select id="role" name="role" class="mt-2 w-full rounded-xl border-gray-300 focus:border-green-700 focus:ring-green-700">
+        @foreach (\App\Models\User::registrationRoleOptions() as $value => $label)
+            <option value="{{ $value }}" @selected(old('role', request('role', \App\Models\User::ROLE_PATIENT)) === $value)>Soy {{ mb_strtolower($label) }}</option>
+        @endforeach
+    </select>
+    <x-input-error :messages="$errors->get('role')" class="mt-2" />
+</div>
 
         <!-- Name -->
         <div>

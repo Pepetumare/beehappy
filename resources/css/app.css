@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+ body { @apply bg-[#f8f9f4] text-[#26382d] antialiased; }
+ [x-cloak] { display: none !important; }
+ a, button, input, select { @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#397442]; }
+}
+@layer components {
+ .bee-card { @apply rounded-2xl border border-[#e3e8dd] bg-white p-6 shadow-sm; }
+ .bee-button { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#ffd12c] px-6 py-3 text-sm font-bold text-[#26382d] transition hover:bg-[#f3c018]; }
+ .bee-secondary { @apply inline-flex items-center justify-center rounded-xl border border-[#cad6c5] bg-white px-6 py-3 text-sm font-semibold hover:bg-[#f0f5eb]; }
+ .bee-kicker { @apply text-xs font-bold uppercase tracking-[.2em] text-[#63815c]; }
+}
